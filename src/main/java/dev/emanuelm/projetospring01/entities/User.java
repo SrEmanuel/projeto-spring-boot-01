@@ -1,11 +1,20 @@
 package dev.emanuelm.projetospring01.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity //It specifies that this class is an entity to be mapped and inserted into the database
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @Id //It specifies the primary key of this entity
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // it specifies the strategy of generation of this primary
+    // key. In this case, this primary key will be auto increased on the database
     private Long id;
     private String name;
     private String email;
